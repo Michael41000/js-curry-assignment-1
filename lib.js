@@ -29,8 +29,8 @@ const calculateTotals =
       console.log(listings)
 
       console.log('Carts')
-      return carts.reduce(
-        (customerCartTotals, currentCustomer) => {
+      return carts.map(
+        (currentCustomer) => {
           console.log('\tCustomer: ' + currentCustomer.customer)
           const totalItemsPrice = currentCustomer.items.reduce(
             (total, currentItem, index) => {
@@ -52,9 +52,8 @@ const calculateTotals =
             'total' : totalItemsPrice
           }
           console.log('\tTotal Cart Price: ' + totalItemsPrice)
-          customerCartTotals.push(customer)
-          return customerCartTotals
-        }, []
+          return customer
+        }
       )
 
     
