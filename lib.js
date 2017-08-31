@@ -24,17 +24,14 @@ const listedPrice =
  */
 const calculateTotals =
   listings => 
-    carts => {
-      return carts.map(
-        (currentCustomer) => { 
-          return {
+    carts => 
+      carts.map(
+        (currentCustomer) => ({
             'customer' : currentCustomer.customer,
             'total' : currentCustomer.items.reduce(
               (total, currentItem) => total + listings.find((listing) => listing.name === currentItem).price, 0)
-          }
-        }
+          })
       )
-  }
 
 module.exports = {
   listing,
