@@ -35,16 +35,7 @@ const calculateTotals =
           const totalItemsPrice = currentCustomer.items.reduce(
             (total, currentItem, index) => {
               console.log('\t\tItem ' + index + ': ' + currentItem)
-              return total + listings.reduce( 
-                (previousListing, currentListing) => {
-                  if (listedPrice(currentListing)(currentItem) !== 0)
-                  {
-                    console.log('\t\t\tPrice: ' + listedPrice(currentListing)(currentItem))
-                    return listedPrice(currentListing)(currentItem)
-                  }
-                  return previousListing  
-                }, 0
-              )
+              return total + listings.find((listing) => listing.name === currentItem).price
             }, 0
           )
           const customer = {
