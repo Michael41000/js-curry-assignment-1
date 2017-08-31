@@ -25,6 +25,7 @@ const listedPrice =
 const calculateTotals =
   listings => 
     carts => 
+      // Map each cart into an object with a customer and total key
       carts.map(
         (currentCustomer) => ({
             'customer' : currentCustomer.customer,
